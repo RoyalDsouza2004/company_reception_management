@@ -7,7 +7,7 @@ export const addVisitor = async (req , res , next) => {
 
 
       try {
-            await connection.promise().query("INSERT INTO Visitor(Name , Email , Phone_Number , Purpose_of_Visit , Date_Time_of_Visit) values( ? , ? , ? , ? , ? )", [name , email , phone , purpose , dateTime ]) , (err , result) => {
+            await connection.query("INSERT INTO Visitor(Name , Email , Phone_Number , Purpose_of_Visit , Date_Time_of_Visit) values( ? , ? , ? , ? , ? );", [name , email , phone , purpose , dateTime ]) , (err , result) => {
                   if (err) return next(new ErrorHandler("Couldn't insert the values for the visitor" , 400));
             }
 

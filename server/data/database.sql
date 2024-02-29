@@ -2,7 +2,7 @@ CREATE TABLE Admin(
   id VARCHAR(20) PRIMARY KEY,
   Name VARCHAR(20),
   Email VARCHAR(20) ,
-  password VARCHAR(20) NOT NULL
+  password VARCHAR(200) NOT NULL
 );
 
 CREATE TABLE Staff (
