@@ -51,6 +51,7 @@
         justify-content: center; 
         align-items: center; 
         text-align: center; 
+        box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
     }
 
     .staff{
@@ -67,6 +68,7 @@
         justify-content: center;
         align-items: center; 
         text-align: center; 
+        box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
 
     }
     .appointment{
@@ -83,6 +85,7 @@
         justify-content: center; 
         align-items: center; 
         text-align: center; 
+        box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
 
     }
     .training{
@@ -99,6 +102,7 @@
         justify-content: center; 
         align-items: center;
         text-align: center;
+        box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
 
     }
     
@@ -118,6 +122,7 @@
             pink 70deg,  
             lightblue 0 235deg,  
             orange 0); 
+            box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
     } 
   
     
@@ -130,5 +135,4 @@
     
    }
   */
-
 
