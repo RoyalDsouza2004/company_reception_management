@@ -1,0 +1,56 @@
+*{
+      margin: 0;
+      padding: 0;
+}
+
+body{
+      height: 100vh;
+  }
+
+header{
+      position: fixed;
+      display: flex;
+      flex-direction: column;
+}
+
+main {
+      position: fixed;
+      height: 82vh;
+      width: 94vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      top: 165px;
+      left: 201px;
+      flex-direction: row;
+  }
+
+  .main{
+      position: relative;
+      width: 100vw;
+      height: 150px;
+      border:1px solid red;
+  }
+
+  .side {
+      position: relative;
+      top: 8px;
+      height: 100vw;
+      width: 188px;
+      border:1px solid red;
+  }
+
+.table {
+      width: 56%;
+      height: 60%;
+      border:1px solid red;
+  }
+
+.chart{
+      width: 36%;
+      height: 50%;
+      border:1px solid red;
+}
+
+
+
