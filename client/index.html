@@ -1,92 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Website with Login & Registration Form</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
-  </head>
-  <body>
-    <header class="header">
-      <nav class="nav">
-        <a href="#" class="nav_logo">CodingLab</a>
-
-        <ul class="nav_items">
-          <li class="nav_item">
-            <a href="#" class="nav_link">Home</a>
-            <a href="#" class="nav_link">Product</a>
-            <a href="#" class="nav_link">Services</a>
-            <a href="#" class="nav_link">Contact</a>
-          </li>
-        </ul>
-
-        <button class="button" id="form-open">Login</button>
-      </nav>
-    </header>
-
- 
-    <section class="home">
-      <div class="form_container">
-        <i class="uil uil-times form_close"></i>
-    
-        <div class="form login_form">
-          <form action="#">
-            <h2>Login</h2>
-
-            <div class="input_box">
-              <input type="email" placeholder="Enter your email" required />
-              <i class="uil uil-envelope-alt email"></i>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" integrity="sha512-wnea99uKIC3TJF7v4eKk4Y+lMz2Mklv18+r4na2Gn1abDRPPOeef95xTzdwGD9e6zXJBteMIhZ1+68QC5byJZw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="main.css">
+   
+</head>
+<body class="bg-gray-200 flex justify-center items-center h-screen w-screen">
+    <div class="container overflow-hidden rounded-2xl">
+        <div class="flex flex-row bg-white items-center">
+            <div class="app-bg-blue-1 px-10 py-5">
+                <span class="text-lg text-white font-bold">LOGO</span>
             </div>
-            <div class="input_box">
-              <input type="password" placeholder="Enter your password" required />
-              <i class="uil uil-lock password"></i>
-              <i class="uil uil-eye-slash pw_hide"></i>
+            
+            <div class="flex flex-row pl-5 items-center">
+                <div class="h-9 w-9 bg-yellow-400 border-solid border-4 border-blue-600 rounded-xl"></div>
+               
+                <svg class="w-4 h-4 app-color-blue-3 ml-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                <div class="w-px bg-gray-100 h-10 ml-5"></div>
+            </div>
+            <div class="flex flex-row pl-5 items-center mr-auto">
+                <div class="h-9 w-9 app-bg-blue-2 flex justify-center items-center rounded-xl">
+                    <svg class="w-6 h-6 app-color-blue-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                </div>
+                <div class="flex flex-col pl-5">
+                    <span class="font-semibold text-sm app-color-black">Today</span>
+                   
+                    <span class="font-semibold text-sm app-color-blue-1" id="date"></span>
+                    <span  id="date"></span>
+                </div>
+                
+                
+                <svg class="h-4 w-4 app-color-blue-3 ml-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                <div class="w-px bg-gray-100 h-10 ml-5"></div>
+                
             </div>
 
-            <div class="option_field">
-              <span class="checkbox">
-                <input type="checkbox" id="check" />
-                <label for="check">Remember me</label>
-              </span>
-              <a href="#" class="forgot_pw">Forgot password?</a>
-            </div>
+            <svg class="w-6 h-6 app-color-blue-3 mr-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
 
-            <button class="button">Login Now</button>
-
-            <div class="login_signup">Don't have an account? <a href="#" id="signup">Signup</a></div>
-          </form>
         </div>
-
-       
-        <div class="form signup_form">
-          <form action="#">
-            <h2>Signup</h2>
-
-            <div class="input_box">
-              <input type="email" placeholder="Enter your email" required />
-              <i class="uil uil-envelope-alt email"></i>
+      
+            <div class="bg-white p-10 ">
+                
+                <form>
+                    <P>LOGIN</P>
+                    <br><br>
+                    <label for="employee">Employee ID:</label> 
+                    <input type="number" id="employee" class="input" placeholder="Enter employee id">
+                    <br><br>
+                    <label for="password">Password:</label> 
+                    <input type="text" id="password" class="input" placeholder="Enter Password">
+                <br><br>
+                <input type="submit" value="Submit">
+                    
+                </form>
+                
+               <br><br>
             </div>
-            <div class="input_box">
-              <input type="password" placeholder="Create password" required />
-              <i class="uil uil-lock password"></i>
-              <i class="uil uil-eye-slash pw_hide"></i>
-            </div>
-            <div class="input_box">
-              <input type="password" placeholder="Confirm password" required />
-              <i class="uil uil-lock password"></i>
-              <i class="uil uil-eye-slash pw_hide"></i>
-            </div>
-
-            <button class="button">Signup Now</button>
-
-            <div class="login_signup">Already have an account? <a href="#" id="login">Login</a></div>
-          </form>
-        </div>
-      </div>
-    </section>
-
-    <script src="script.js"></script>
-  </body>
-  </html>
+        
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
