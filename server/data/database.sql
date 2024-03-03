@@ -67,48 +67,7 @@ CREATE TABLE Message (
 );
 
 
-
-
--- visitor count for month
-
-SELECT 
-    YEAR(Date_Time_of_Visit) AS Visit_Year,
-    MONTH(Date_Time_of_Visit) AS Visit_Month, 
-    DAY(Date_Time_of_Visit) AS Visit_Day, 
-    COUNT(*) AS Visitor_Count
-FROM 
-    Visitor
-WHERE 
-    YEAR(Date_Time_of_Visit) = 2024 AND 
-    MONTH(Date_Time_of_Visit) = 2 
-GROUP BY 
-    Visit_Year, Visit_Month, Visit_Day;
-
-
--- total staff count
-
-SELECT COUNT(*) AS Total_Staff_Count
-FROM Staff;
-
-
--- total appointment pending , approved or cancelled
-
-SELECT Booking_Status, COUNT(*) AS Total_Appointments
-FROM Appointment
-GROUP BY Booking_Status;
-
-
--- cancel appointment
-UPDATE Appointment
-SET Booking_Status = 'Cancelled',
-    Approval_DateTime = NOW()
-WHERE ID = <your_appointment_id>;
-
---approve appointment
-UPDATE Appointment
-SET Booking_Status = 'Approved',
-    Approval_DateTime = NOW()
-WHERE ID = <your_appointment_id>;
+--visitor details
 
 SELECT 
     V.ID AS Visitor_ID, 
@@ -143,3 +102,81 @@ END;
 //
 
 DELIMITER ;
+
+
+--appointment details
+
+SELECT 
+    A.ID AS Appointment_ID,
+    V.Name AS Visitor_Name,
+    V.Email AS Visitor_Email,
+    A.Date_Time AS Appointment_Date_Time,
+    A.Booking_Status AS Appointment_Status,
+    IFNULL(A.Approval_DateTime, 'waiting for response') AS Approved_on 
+FROM 
+    Appointment A
+LEFT JOIN 
+    Visitor V ON A.Visitor_ID = V.ID;
+
+
+--staff details
+
+SELECT * FROM Staff;
+
+
+-- cancel appointment
+UPDATE Appointment
+SET Booking_Status = 'Cancelled',
+    Approval_DateTime = NOW()
+WHERE ID = <your_appointment_id>;
+
+--approve appointment
+UPDATE Appointment
+SET Booking_Status = 'Approved',
+    Approval_DateTime = NOW()
+WHERE ID = <your_appointment_id>;
+
+
+-- visitor count for month
+
+SELECT 
+    COUNT(*) AS Visitor_Count
+FROM 
+    Visitor
+WHERE 
+    YEAR(Date_Time_of_Visit) = 2024 AND 
+    MONTH(Date_Time_of_Visit) = 2 
+GROUP BY 
+    Visit_Year, Visit_Month, Visit_Day;
+
+
+-- total staff count
+
+SELECT COUNT(*) AS Total_Staff_Count
+FROM Staff;
+
+
+-- total appointment pending , approved or cancelled
+
+SELECT Booking_Status, COUNT(*) AS Total_Appointments
+FROM Appointment
+GROUP BY Booking_Status;
+
+
+--last 3 queries equalent to this ,
+SELECT
+    (SELECT COUNT(*) FROM Visitor WHERE YEAR(Date_Time_of_Visit) = 2024 AND MONTH(Date_Time_of_Visit) = 2) AS Visitor_Count,
+    (SELECT COUNT(*) FROM Staff) AS Total_Staff_Count,
+    JSON_OBJECTAGG(Booking_Status, Total_Appointments) AS Total_Appointments
+FROM 
+    (
+        SELECT 
+            Booking_Status, 
+            COUNT(*) AS Total_Appointments 
+        FROM 
+            Appointment 
+        GROUP BY 
+            Booking_Status
+    ) AS subquery;
+
+

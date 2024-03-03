@@ -5,19 +5,13 @@ config({
       path: "./data/config.env",
 });
 
-const connection = mysql.createConnection({
+const connection = mysql.createPool({
       host: "127.0.0.1",
       user: "root",
       password: process.env.PASSWORD,
       database: "reception_management"
 }).promise();
 
-const connectDB = () => {
-      connection.connect((err)=>{
-            if(err){
-                  console.log(err);
-            }else console.log("Connected to the database");
-      })
-}
+setTimeout(()=> console.log("database connected successfully") , 1);
 
-export {connection , connectDB};
+export {connection};
