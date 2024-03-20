@@ -49,6 +49,13 @@ export const login = async(req, res , next) =>{
 
 }
 
+export const profile = (req, res) => {
+      res.status(200).json({
+            success: true,
+            user: req.user[0],
+      })
+}
+
 export const logout = (req , res , next) =>{
       res.status(200).cookie("token" , "" , {
             expires: new Date(Date.now()),
@@ -56,6 +63,6 @@ export const logout = (req , res , next) =>{
 		secure: process.env.NODE_ENV === "Developement" ? false : true,
       }).json({
             success: true,
-            message: "logged out successfully"
+            message: "logout successfully"
       })
 }
